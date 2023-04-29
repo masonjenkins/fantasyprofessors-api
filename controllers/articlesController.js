@@ -49,7 +49,7 @@ const createArticle = async (req, res, next) => {
         title,
         author,
         date,
-        image: req.file.path,
+        image: req.file.location,
         teaser,
         body,
         tags: newTags
