@@ -22,6 +22,7 @@ const fileUpload =  multer({
     storage: multerS3({
         s3: s3,
         bucket: 'fantasyprofessors-uploads',
+        acl: 'public-read',
         key: (req, file, cb) => {
             cb(null, `${uuid()}.${MIME_TYPE[file.mimetype]}`)
         }

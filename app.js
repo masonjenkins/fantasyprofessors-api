@@ -13,8 +13,6 @@ app.use(bodyParser.json());
 
 app.use(cors())
 
-app.use('/uploads/images', express.static(path.join('uploads', 'images')))
-
 app.use('/api/articles', articlesRoutes);
 app.use('/api/users', usersRoutes);
 
