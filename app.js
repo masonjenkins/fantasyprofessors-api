@@ -5,8 +5,6 @@ const articlesRoutes = require('./routes/articlesRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const HttpError = require('./models/httpError')
 const app = express();
-const fs = require('fs')
-const path = require('path')
 const cors = require('cors')
 
 app.use(bodyParser.json());
@@ -21,11 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-    if(req.file) {
-        fs.unlink(req.file.path, (e) => {
-            console.log(e)
-        })
-    }
+
     if(res.headerSent) {
         return next(error);
     }
